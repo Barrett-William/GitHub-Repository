@@ -17,4 +17,5 @@ def Tweet(x):
 
     # Create a tweet
     api.update_status(x)
-    print("Tweet posted")
+    
+    return "Tweet posted. "
