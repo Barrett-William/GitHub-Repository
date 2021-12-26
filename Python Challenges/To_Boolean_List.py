@@ -16,5 +16,3 @@ print(to_boolean_list('a'))
 print(to_boolean_list("deep"))
 print(to_boolean_list("loves"))
 print(to_boolean_list("tesh"))
-
-print(len(100))
