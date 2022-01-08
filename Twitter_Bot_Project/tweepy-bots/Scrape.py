@@ -20,7 +20,7 @@ def scrape():
     text = [text.text for text in soupa.find_all(class_="e1xue1i86")]
     text = "\n".join(text)
 
-    path = r"C:\Users\Will\Desktop\Python\Twitter_Bot_Project\tweepy-bots" + '\\'
+    path = r"C:\Users\Will\Desktop\GitHub-Repository\Twitter_Bot_Project\tweepy-bots" + '\\'
     time = datetime.now().strftime("%d/%m/%Y %H:%M:%S") + " - "
 
     double = False
