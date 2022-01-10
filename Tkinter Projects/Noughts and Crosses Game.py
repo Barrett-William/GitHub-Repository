@@ -1,18 +1,18 @@
 import tkinter as tk
 import numpy as np
 
-#Box dimensions
-w = 500
-lw = 10 #line width
-
 class GUI:
+    #Box dimensions
+    w = 500
+    lw = 5 #line width
+
     def __init__(self, master):
         #Frame for canvases
-        self.frame = tk.Frame(root, width = w*3, height = w*3, bg = "grey")
+        self.frame = tk.Frame(root, width = self.w*3, height = self.w*3, bg = "grey")
         self.frame.pack()
 
         #Initial draw of grid in Canvas
-        self.Canvas = tk.Canvas(self.frame, bg="white", width=w, height=w)
+        self.Canvas = tk.Canvas(self.frame, bg="white", width=self.w, height=self.w)
         m_i = 3
         self.set(m_i)
 
@@ -29,15 +29,15 @@ class GUI:
         r = m_i + 1 #Different ints to define regions
         self.m_c = [None] * r
         for i in range(r):
-            self.m_c[i] = i*(w/m_i)
+            self.m_c[i] = i*(self.w/m_i)
 
         #Draw grid to canvas
         rng = list(range(m_i))
         del rng[0]
         for i in rng:
             for j in rng:
-                self.Canvas.create_line(0, i*w/m_i, w, i*w/m_i, width = lw)
-                self.Canvas.create_line(j*w/m_i, 0, j*w/m_i, w, width = lw)
+                self.Canvas.create_line(0, i*self.w/m_i, self.w, i*self.w/m_i, width = self.lw)
+                self.Canvas.create_line(j*self.w/m_i, 0, j*self.w/m_i, self.w, width = self.lw)
         self.Canvas.pack()
 
         #Bind
@@ -59,18 +59,17 @@ class GUI:
                 for j in range(m_i): #Check for which region click happened in y-direction
                     if self.m_c[j] < event.x < self.m_c[j+1]:
                         if self.m[i][j] is None: #If not already played in box
-                            self.m[i][j] = self.t%2
-                            #print("scores:\n",self.m)
+                            self.m[i][j] = self.t%2 #Element scored as 1 or 0
 
-                            if self.t%2!=0: #Draw and change score matrix - Crosses
+                            if self.t%2!=0: #Draw to relfect changed score matrix - Crosses
                                 line = self.Canvas.create_line(self.m_c[j],self.m_c[i],self.m_c[j+1],
-                                    self.m_c[i+1],width = lw, fill = "red")
+                                    self.m_c[i+1],width = self.lw, fill = "red")
                                 line = self.Canvas.create_line(self.m_c[j+1],self.m_c[i],self.m_c[j],
-                                    self.m_c[i+1],width = lw, fill = "red")
+                                    self.m_c[i+1],width = self.lw, fill = "red")
 
-                            elif self.t%2==0: #Draw and change score matrix - Noughts
+                            elif self.t%2==0: #Draw to relfect changed score matrix - Noughts
                                 self.Canvas.create_oval(self.m_c[j+1],self.m_c[i],self.m_c[j],
-                                    self.m_c[i+1], width = lw, outline = "blue")
+                                    self.m_c[i+1],width = self.lw, outline = "blue")
         
         #Search for win condition
         w_f = None
