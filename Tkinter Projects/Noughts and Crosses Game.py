@@ -2,7 +2,7 @@ import tkinter as tk
 import numpy as np
 
 class GUI:
-    #Box dimensions
+    # Box dimensions
     w = 500
     lw = 5 #line width
 
