@@ -50,9 +50,9 @@ class GUI:
         self.Canvas.delete("all")
         self.set(m_i)
 
-    #Click - turn counter and click recording
-    def turn(self, event,m_i):
-        self.t+=1
+    # Click - turn counter and click recording
+    def turn(self, event, m_i):
+        self.t += 1
 
         for i in range(m_i): #Check for which region click happened in x-direction
             if self.m_c[i] < event.y < self.m_c[i+1]:
