@@ -113,9 +113,10 @@ class GUI:
                 250, 250, fill="red", font="Helvetica 40 bold", text="Draw \U0001F634")
         self.Canvas.unbind("<1>")  # Unbind to prevent further entries
 
-
 root = tk.Tk()
 root.title("Noughts and Crosses")
 root.resizable(width=False, height=False)
-my_gui = GUI(root)
-root.mainloop()
+
+if __name__ == "__main__":
+    my_gui = GUI(root)
+    root.mainloop()
