@@ -25,7 +25,7 @@ def scrape():
 
     double = False
     news = 0
-    with open('Headlines.txt','r+') as f:
+    with open(path+'Headlines.txt','r+') as f:
         for line in f:
             if line.strip() == headline:
                 double = True
@@ -55,6 +55,5 @@ def scrape():
             with open(path + "Log.txt", 'a+') as l:
                 l.seek(0)
                 l.write(time + C + "\n")
-    f.close()
 
-scrape()
+if __name__ == '__main__': scrape()
