@@ -3,11 +3,18 @@ def Tweet(x):
 
     import tweepy, json
 
-    # Authenticate to Twitter
-    MySecrets = json.loads("AuthTwitter.json")
-    auth = tweepy.OAuthHandler(MySecrets["OAuthHandler"])
-    print(auth)
-    auth.set_access_token(MySecrets["AccesToken"])
+    # Retrieve Auths from Json
+    with open("AuthTwitter.json", 'r') as f:
+        MyAuths = json.load(f)
+    
+    consumer_key = MyAuths["API Key"]
+    consumer_secret = MyAuths["API Key Secret"]
+    access_token = MyAuths["Access Token"]
+    access_token_secret = MyAuths["Access Token Secret"]
+
+    #Authenticatw to Twitter
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
 
     # Create API object
     api = tweepy.API(auth)
