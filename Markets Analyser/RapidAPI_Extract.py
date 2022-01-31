@@ -14,4 +14,4 @@ def main(stock):
 
     print(data.decode("utf-8"))
 
-if __name__ == '__main__': main("^FTSE")
+if __name__ == '__main__': main("NASDAQ")
