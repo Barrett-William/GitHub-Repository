@@ -15,8 +15,8 @@ def main(stock):
     account = api.get_account()
     print(account)
 
-    DayStock = api.get_barset(stock, 'day')
-    print(DayStock.df)
+    DayStock = api.get_barset(stock, 'day',limit=2)
+    print(DayStock._raw) #time, open, high, low, close, volume
 
     QtrHStock = api.get_barset(stock, '15Min', limit=1000)
     print(QtrHStock.df)
