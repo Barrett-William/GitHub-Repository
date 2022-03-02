@@ -32,11 +32,14 @@ i[9] = i[8]/i[4] #Relative daily change"""
     x = np.concatenate((u, listVars),axis=1)
     for i in x:
         exec(myVars)
-    
+
+    #for i in x[10:,7]:
+    #    print(i)
+
     #Simple Moving Average
-    SMA = np.convolve(x[7], np.ones(len(u)), 'valid') / len(u)
-    print(SMA)
-    print(np.append(np.zeros(5655-5646),SMA))
+    #SMA = np.convolve(x[7], np.ones(len(u)), 'valid') / len(u)
+    #print(SMA)
+    #print(np.append(np.zeros(5655-5646),SMA))
 
     #Plot
     fig, axs = plt.subplots(2,2)
