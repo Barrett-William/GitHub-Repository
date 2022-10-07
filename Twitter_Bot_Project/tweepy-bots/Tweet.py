@@ -4,7 +4,7 @@ def Tweet(x):
     import tweepy, json
 
     # Retrieve Auths from Json
-    path = path = r"C:\Users\Will\Desktop\GitHub-Repository\Twitter_Bot_Project\tweepy-bots" + '\\'
+    path = r"C:\Users\Will\Desktop\Keys" + '\\'
     with open(path+"AuthTwitter.json", 'r') as f:
         MyAuths = json.load(f)
     
